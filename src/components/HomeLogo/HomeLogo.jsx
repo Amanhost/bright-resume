@@ -11,7 +11,7 @@ const HomeLogo = () => {
   };
 
   return (
-    <Box sx={{ mt: 1, ml: 13, cursor: "pointer", display: "flex" }}>
+    <Box sx={{ cursor: "pointer", display: "flex" }}>
       <Image
         src={"/logo/homeanimations.svg"}
         alt={"logo"}

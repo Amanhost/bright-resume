@@ -15,6 +15,7 @@ import UploadFun from "../UploadFuntion/UploadFun";
 const templates = [
   {
     id: 1,
+    templetId: "temp1",
     name: "Template 1",
     imageUrl: "/logo/temp4.png",
     withPhoto: true,
@@ -22,6 +23,7 @@ const templates = [
   },
   {
     id: 2,
+    templetId: "temp2",
     name: "Template 2",
     imageUrl: "/logo/temp6.png",
     withPhoto: false,
@@ -29,6 +31,7 @@ const templates = [
   },
   {
     id: 3,
+    templetId: "temp3",
     name: "Template 3",
     imageUrl: "/logo/temp2.png",
     withPhoto: true,

@@ -20,7 +20,9 @@ const ExperienceLevel = () => {
   };
   return (
     <div>
-      <HomeLogo />
+      <Box sx={{ mt: 3, ml: 4 }}>
+        <HomeLogo />
+      </Box>
       {/* <BuildResume /> */}
       <Box
         sx={{

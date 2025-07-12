@@ -4,6 +4,7 @@ import { ThemeProvider } from "@mui/material";
 import "@mui/joy/styles"; // for Joy UI
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { ResumeProvider } from "@/context/ResumeContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,9 +41,10 @@ export default function RootLayout({ children }) {
             backgroundAttachment: "fixed", // Keeps the background fixed while scrolling
           }}
         />
-
-        {/* Main App Content */}
-        <div style={{ position: "relative", zIndex: 10 }}>{children}</div>
+        s
+        <ResumeProvider>
+          <div style={{ position: "relative", zIndex: 10 }}>{children}</div>
+        </ResumeProvider>
       </body>
     </html>
   );

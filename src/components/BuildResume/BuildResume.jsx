@@ -12,7 +12,9 @@ const BuildResume = () => {
   };
   return (
     <>
-      <HomeLogo />
+      <Box sx={{ mt: 3, ml: 4 }}>
+        <HomeLogo />
+      </Box>
 
       <Box
         sx={{
