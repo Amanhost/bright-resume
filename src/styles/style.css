@@ -1,0 +1,18 @@
+.resume-swiper .swiper-pagination {
+  bottom: 0px;
+  text-align: center;
+}
+
+.resume-swiper .swiper-pagination-bullet {
+  background-color: #1976d2; /* MUI primary color */
+  opacity: 0.6;
+  width: 10px;
+  height: 10px;
+  margin: 0 6px !important;
+  transition: all 0.3s ease;
+}
+
+.resume-swiper .swiper-pagination-bullet-active {
+  opacity: 1;
+  background-color: #0d47a1; /* Darker shade on active */
+}
