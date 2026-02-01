@@ -41,7 +41,7 @@ export default function RootLayout({ children }) {
             backgroundAttachment: "fixed", // Keeps the background fixed while scrolling
           }}
         />
-        s
+
         <ResumeProvider>
           <div style={{ position: "relative", zIndex: 10 }}>{children}</div>
         </ResumeProvider>

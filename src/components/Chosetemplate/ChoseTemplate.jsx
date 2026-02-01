@@ -11,6 +11,7 @@ import {
 import Image from "next/image";
 import HomeLogo from "../HomeLogo/HomeLogo";
 import UploadFun from "../UploadFuntion/UploadFun";
+import { useResume } from "@/context/ResumeContext";
 
 const templates = [
   {
@@ -48,9 +49,11 @@ const ChoseTemplate = () => {
     oneColumn: false,
     twoColumn: false,
   });
+  const { setSelectedTemplates } = useResume();
 
-  const handleSelect = (id) => {
+  const handleSelect = (id, url) => {
     setSelectedTemplate(id);
+    setSelectedTemplates(url);
   };
 
   const handleFilterChange = (e) => {
@@ -132,7 +135,9 @@ const ChoseTemplate = () => {
                         }
                         borderRadius="8px"
                         overflow="hidden"
-                        onClick={() => handleSelect(template.id)}
+                        onClick={() =>
+                          handleSelect(template.id, template.imageUrl)
+                        }
                         sx={{
                           cursor: "pointer",
                           transition: "border 0.3s",

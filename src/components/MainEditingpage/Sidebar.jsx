@@ -37,29 +37,67 @@ export default function Sidebar({ currentStep = 0 }) {
     >
       <Box>
         <HomeLogo />
-        {/* <Typography variant="h6" sx={{ mb: 4, color: "#B95AD8" }}> */}
-        {/* </Typography> */}
-        <List>
+
+        <List sx={{ position: "relative", pl: 0 }}>
           {steps.map((label, index) => (
-            <ListItem key={label} sx={{ p: "6px 0" }}>
+            <ListItem
+              key={label}
+              sx={{
+                p: 0,
+                alignItems: "flex-start",
+                position: "relative",
+              }}
+            >
               <Box
                 sx={{
-                  width: 24,
-                  height: 24,
-                  borderRadius: "50%",
-                  bgcolor: index === currentStep ? "#f59523" : "transparent",
-                  border: "2px solid white",
-                  color: "white",
-                  textAlign: "center",
-                  fontSize: "14px",
-                  fontWeight: "bold",
+                  position: "relative",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
                   mr: 2,
-                  lineHeight: "20px",
                 }}
               >
-                {index + 1}
+                <Box
+                  sx={{
+                    width: 28,
+                    height: 28,
+                    borderRadius: "50%",
+                    bgcolor: index === currentStep ? "#f59523" : "transparent",
+                    border: "2px solid white",
+                    color: "white",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: "14px",
+                    fontWeight: "bold",
+                    zIndex: 2,
+                  }}
+                >
+                  {index + 1}
+                </Box>
+
+                {index < steps.length - 1 && (
+                  <Box
+                    sx={{
+                      width: "2px",
+                      flex: 1,
+                      mt: 0.5,
+                      bgcolor: "white",
+                      borderLeft: "2px dotted white",
+                      minHeight: 32,
+                    }}
+                  />
+                )}
               </Box>
-              <ListItemText primary={label} />
+
+              {/* Step label */}
+              <ListItemText
+                primary={
+                  <Typography variant="body1" sx={{ color: "white", pt: 0.5 }}>
+                    {label}
+                  </Typography>
+                }
+              />
             </ListItem>
           ))}
         </List>

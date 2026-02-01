@@ -19,12 +19,23 @@ export const ResumeProvider = ({ children }) => {
     setFormData((prev) => ({ ...prev, ...newData }));
   };
 
-  const nextStep = () => setStep((prev) => Math.min(prev + 1, 5));
+  const nextStep = () => setStep((prev) => prev + 1);
   const prevStep = () => setStep((prev) => Math.max(prev - 1, 0));
+  const [selectedTemplates, setSelectedTemplates] = useState(
+    "/templates/template1.png"
+  );
 
   return (
     <ResumeContext.Provider
-      value={{ step, nextStep, prevStep, formData, updateForm }}
+      value={{
+        step,
+        nextStep,
+        prevStep,
+        formData,
+        updateForm,
+        selectedTemplates,
+        setSelectedTemplates,
+      }}
     >
       {children}
     </ResumeContext.Provider>

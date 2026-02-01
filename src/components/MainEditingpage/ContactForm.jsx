@@ -9,8 +9,24 @@ import {
   Tooltip,
 } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import { useResume } from "@/context/ResumeContext";
+import { useRouter } from "next/navigation";
 
 export default function ContactForm() {
+  const { nextStep, prevStep } = useResume();
+  const { step, setStep } = useResume();
+  const router = useRouter();
+  const { selectedTemplates } = useResume();
+  console.log("step", step);
+
+  const handleBack = () => {
+    if (step > 0) {
+      prevStep();
+    } else {
+      router.push("/template/experience-level/select-template");
+    }
+  };
+
   return (
     <Box
       sx={{
@@ -27,9 +43,15 @@ export default function ContactForm() {
         gap: 4,
       }}
     >
-      {/* Left Form Section */}
       <Box sx={{ flex: 1 }}>
-        <Typography variant="body2" color="primary" fontWeight="bold" mb={2}>
+        <Typography
+          variant="body2"
+          color="primary"
+          fontWeight="bold"
+          mb={2}
+          onClick={handleBack}
+          sx={{ cursor: "pointer" }}
+        >
           ← Go Back
         </Typography>
 
@@ -147,10 +169,19 @@ export default function ContactForm() {
                 textTransform: "none",
                 fontWeight: 600,
               }}
+              onClick={() => {
+                prevStep();
+              }}
             >
               Preview
             </Button>
-            <Button variant="contained" className="gradient-button">
+            <Button
+              variant="contained"
+              className="gradient-button"
+              onClick={() => {
+                nextStep();
+              }}
+            >
               Next: Work history
             </Button>
           </Box>
@@ -186,12 +217,13 @@ export default function ContactForm() {
             border: "1px solid #ccc",
             height: 380,
             backgroundColor: "#fff",
-            backgroundImage: "url('/path/to/resume-preview.png')",
+            backgroundImage: `url(${selectedTemplates})`,
             backgroundSize: "cover",
-            backgroundPosition: "center",
+            backgroundPosition: "top",
             mb: 2,
+            borderRadius: 2,
           }}
-        ></Box>
+        />
         <Typography variant="body2" textAlign="center">
           <Box
             component="a"
